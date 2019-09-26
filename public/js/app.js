@@ -16,9 +16,12 @@ weatherForm.addEventListener('submit', (event) => {
         res.json().then((data) => {
             if (data.error) {
                 messageOne.textContent = data.error;
+                messageTwo.textContent = '';
             } else {
                 messageOne.textContent = data.location;
-                messageTwo.textContent = data.summary + "It is "+ data.temperature + " degrees out there. There is " +data.precipProbability + "% possibility of rain. ";
+                messageTwo.textContent = data.summary + "It is "+ data.temperature 
+                + " degrees out there with high temperate at "+ data.highTemp + " degrees and Low temperate at " + data.lowTemp
+                + ". There is " +data.precipProbability + "% possibility of rain. ";
             }
         })
     }).catch((err) => {
